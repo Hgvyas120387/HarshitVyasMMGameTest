@@ -3,10 +3,11 @@
 /// </summary>
 using System.Collections.Generic;
 using UnityEngine;
+using cyberspeed.Services;
 
 namespace cyberspeed.FSM
 {
-    public class FSM
+    public class FSM : IFSMService
     {
         //dictionary to hold all our game states like loading, main menu, game play, game over
         private Dictionary<string, IState> states = new Dictionary<string, IState>();
@@ -27,7 +28,7 @@ namespace cyberspeed.FSM
             }
         }
         /// <summary>
-        /// Before starting FSM first need to add all the states we want in the game
+        /// Before using FSM first need to add all the states we want in the game
         /// </summary>
         /// <param name="stateBehaviour">State we want to add</param>
         public void AddState(IState stateBehaviour)
