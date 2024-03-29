@@ -7,17 +7,20 @@ public class BootStrap : MonoBehaviour
 {
     //all of the states list which our game contains
     [SerializeField] private StateBehaviour[] gameStates;
+    [SerializeField] private States initialState = States.Loading;
 
     // Start is called before the first frame update
     void Start()
     {
-        //registor the fsm service
+        //register the Game mode service
+        ServiceLocator.Singleton.Register<IGameModeService>(new GameModeData());
+        //register the fsm service
         ServiceLocator.Singleton.Register<IFSMService>(new FSM());
         //add all the states
         for (int i = 0; i < gameStates.Length; i++)
             ServiceLocator.Singleton.Get<IFSMService>().AddState(gameStates[i]);
         //switch to initial state
-        ServiceLocator.Singleton.Get<IFSMService>().ChangeState(States.Loading.ToString());
+        ServiceLocator.Singleton.Get<IFSMService>().ChangeState(initialState.ToString());
     }
 
     
