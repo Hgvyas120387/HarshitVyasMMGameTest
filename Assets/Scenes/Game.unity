@@ -580,7 +580,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1416e517c68a4c2b8b3829344bd4bfb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pools: []
+  pools:
+  - tag: cardObj
+    pfPoolObj: {fileID: 1801258602358698652, guid: b02fc1464eb5e421d930cba3d5947042, type: 3}
+    size: 20
   audioSourceCount: 15
   pfAudioSource: {fileID: 1506703693363376054, guid: 8cb26fe898c3f4ec78da2ae11d506523, type: 3}
 --- !u!4 &1483278937

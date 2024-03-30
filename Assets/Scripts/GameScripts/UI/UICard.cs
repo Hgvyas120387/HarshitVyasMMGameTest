@@ -2,6 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 using cyberspeed.Services;
+using cyberspeed.Pooling;
 
 namespace cyberspeed.MatchGame.UI
 {
@@ -21,6 +22,15 @@ namespace cyberspeed.MatchGame.UI
         private bool isCardSwapped = false;
         private int index;
 
+        public void Reset()
+        {
+            index = 0;
+            isFacedDown = true;
+            isCardSwapped = false;
+            imgCard.sprite = spriteForCardFaceDown;
+            imgCard.enabled = true;
+            ServiceLocator.Singleton.Get<IPoolService>().ReturnToPool(gameObject);
+        }
         public void SetData(int index)
         {
             this.index = index;

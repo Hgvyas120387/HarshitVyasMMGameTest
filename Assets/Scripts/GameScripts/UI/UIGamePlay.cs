@@ -2,12 +2,13 @@ using UnityEngine.UI;
 using UnityEngine;
 using cyberspeed.Services;
 using System.Collections.Generic;
+using cyberspeed.Pooling;
 
 namespace cyberspeed.MatchGame.UI
 {
     public class UIGamePlay : MonoBehaviour
     {
-        [SerializeField] private UICard pfUICard;
+        [SerializeField] private string pfUICardTag;
         [SerializeField] private GridLayoutGroup gridLayout;
         private List<UICard> allCards = new List<UICard>();
         //called from editor
@@ -32,14 +33,15 @@ namespace cyberspeed.MatchGame.UI
             {
                 for(int j = 0; j < columns; j++)
                 {
-                    UICard card = Instantiate<UICard>(pfUICard, pfUICard.transform.parent);
+                    UICard card = ServiceLocator.Singleton.Get<IPoolService>().Instantiate<UICard>(pfUICardTag);
+                    card.transform.SetParent(gridLayout.transform);
                     card.SetData(cards[index]);
                     index++;
                     card.gameObject.SetActive(true);
                     allCards.Add(card);
                 }
             }
-            pfUICard.gameObject.SetActive(false);
+            
             ServiceLocator.Singleton.Get<IGameModeService>().FeedAllCard(allCards.ToArray());
         }
     }

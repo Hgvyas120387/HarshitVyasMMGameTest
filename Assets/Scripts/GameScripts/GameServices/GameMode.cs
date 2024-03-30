@@ -5,6 +5,7 @@ using UnityEngine;
 using cyberspeed.Services;
 using cyberspeed.MatchGame.UI;
 using System.Collections;
+using cyberspeed.Pooling;
 
 namespace cyberspeed.MatchGame
 {
@@ -117,6 +118,10 @@ namespace cyberspeed.MatchGame
             }
             if (isGameEnded)
             {
+                for (int i = 0; i < allCards.Length; i++)
+                {
+                    allCards[i].Reset();
+                }
                 ServiceLocator.Singleton.Get<IFSMService>().ChangeState(States.GameEnd.ToString());
             }
         }
