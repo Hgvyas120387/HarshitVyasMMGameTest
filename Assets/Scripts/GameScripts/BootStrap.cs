@@ -12,6 +12,8 @@ public class BootStrap : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //allow game to run as fast as possible
+        Application.targetFrameRate = -1;
         //register the Game mode service
         ServiceLocator.Singleton.Register<IGameModeService>(new GameMode());
         //register score service
