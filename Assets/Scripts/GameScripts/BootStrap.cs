@@ -38,6 +38,7 @@ public class BootStrap : MonoBehaviour
             ServiceLocator.Singleton.Get<IFSMService>().ChangeState(States.GamePlay.ToString());
             ServiceLocator.Singleton.Get<IHudService>().UpdateScore(savedGameData.score);
             ServiceLocator.Singleton.Get<IHudService>().UpdateTurnTaken(savedGameData.turnsTaken);
+            ServiceLocator.Singleton.Get<IHudService>().UpdateComboMultiplier(savedGameData.scoreComboMultiplier);
         }
         else
         {

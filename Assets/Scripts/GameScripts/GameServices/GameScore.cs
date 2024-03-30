@@ -20,6 +20,7 @@ namespace cyberspeed.MatchGame
             ServiceLocator.Singleton.Get<IHudService>().UpdateScore(score);
             //increase score multiplier
             scoreComboMultiplier++;
+            ServiceLocator.Singleton.Get<IHudService>().UpdateComboMultiplier(scoreComboMultiplier);
         }
         public void MatchUnSuccess()
         {
@@ -31,6 +32,7 @@ namespace cyberspeed.MatchGame
             else
                 score = 0;
             ServiceLocator.Singleton.Get<IHudService>().UpdateScore(score);
+            ServiceLocator.Singleton.Get<IHudService>().UpdateComboMultiplier(scoreComboMultiplier);
         }
 
         public void TurnTaken()

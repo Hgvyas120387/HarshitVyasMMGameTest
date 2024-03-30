@@ -9,8 +9,10 @@ namespace cyberspeed.MatchGame.UI
         private int actualScore, displayScore;
         private float t = 0;
         private bool isScoreIncreased;
-        [SerializeField] private TextMeshProUGUI txtScore, txtTurnTaken;
-
+        [SerializeField] private TextMeshProUGUI txtScore = null;
+        [SerializeField] private TextMeshProUGUI txtTurnTaken = null;
+        [SerializeField] private TextMeshProUGUI txtComboMultiplier = null;
+        
         private void Awake()
         {
             ServiceLocator.Singleton.Register<IHudService>(this);
@@ -48,6 +50,11 @@ namespace cyberspeed.MatchGame.UI
                 enabled = false;
             }
             txtScore.text = $"Score : {displayScore}";
+        }
+
+        public void UpdateComboMultiplier(int comboMultiplier)
+        {
+            txtComboMultiplier.text = $"Combo : X{comboMultiplier}";
         }
     }
 }

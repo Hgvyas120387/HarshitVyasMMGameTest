@@ -14,5 +14,10 @@ namespace cyberspeed.MatchGame
         /// </summary>
         /// <param name="turnsTaken">latest turn count</param>
         public void UpdateTurnTaken(int turnsTaken);
+        /// <summary>
+        /// to update combo multiplier
+        /// </summary>
+        /// <param name="comboMultiplier">combo multiplier to apply if next pair matching success</param>
+        public void UpdateComboMultiplier(int comboMultiplier);
     }
 }
