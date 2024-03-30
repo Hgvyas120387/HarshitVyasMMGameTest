@@ -9,8 +9,8 @@ namespace cyberspeed.MatchGame.UI
 {
     public class UIGamePlay : MonoBehaviour
     {
-        [SerializeField] private string pfUICardTag;
-        [SerializeField] private GridLayoutGroup gridLayout;
+        [SerializeField] private string pfUICardTag = string.Empty;
+        [SerializeField] private GridLayoutGroup gridLayout = null;
         private List<UICard> allCards = new List<UICard>();
         //called from editor
         public void OnBtnHomeClicked()

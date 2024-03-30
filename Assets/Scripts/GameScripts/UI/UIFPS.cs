@@ -6,7 +6,7 @@ namespace cyberspeed.MatchGame
     public class UIFPS : MonoBehaviour
     {
         private int FrameCounter = 0;
-        [SerializeField] private TextMeshProUGUI txtFPS;
+        [SerializeField] private TextMeshProUGUI txtFPS = null;
 
         void Awake()
         {

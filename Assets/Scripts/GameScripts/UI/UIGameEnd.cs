@@ -6,8 +6,8 @@ namespace cyberspeed.MatchGame.UI
 {
     public class UIGameEnd : MonoBehaviour
     {
-        [SerializeField] private TextMeshProUGUI txtScore;
-        [SerializeField] private AudioClip gameEndSound;
+        [SerializeField] private TextMeshProUGUI txtScore = null;
+        [SerializeField] private AudioClip gameEndSound = null;
 
         private void Awake()
         {

@@ -6,7 +6,7 @@ using cyberspeed.MatchGame;
 public class BootStrap : MonoBehaviour
 {
     //all of the states list which our game contains
-    [SerializeField] private StateBehaviour[] gameStates;
+    [SerializeField] private StateBehaviour[] gameStates = null;
     [SerializeField] private States initialState = States.Loading;
 
     // Start is called before the first frame update
