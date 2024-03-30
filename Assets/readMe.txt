@@ -5,3 +5,4 @@
 5) Saved game will be discarded in case we quit by pressing home icon or if we complete the game
 6) My contact details are +91-9016679976 (Harshit Vyas)
 7) Game has been made with unity 2021.3.15f1
+8) Apk file is also included in the git repo
