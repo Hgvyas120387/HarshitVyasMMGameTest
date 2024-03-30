@@ -4,3 +4,4 @@
 4) Game has save and load functionality in order to save game need to click on save game button available at top centre while playing the game after this if we quit and launch again game will resume from that saved point
 5) Saved game will be discarded in case we quit by pressing home icon or if we complete the game
 6) My contact details are +91-9016679976 (Harshit Vyas)
+7) Game has been made with unity 2021.3.15f1
