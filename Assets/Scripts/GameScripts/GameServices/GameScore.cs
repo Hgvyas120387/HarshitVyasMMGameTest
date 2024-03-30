@@ -3,18 +3,29 @@ namespace cyberspeed.MatchGame
 {
     public class GameScore : IScoreService
     {
+        //score and turns taken by user
         private int score, turnsTaken;
-
+        //score combo in case user do multiple match in row we increase score multiplier and on fail we reset back to 1
+        private int scoreComboMultiplier = 1;
+        //score to grant with multiplier on each successful match
         private const int SCORETOGRANTONMATCHSUCCESS = 100;
+        //score to deduct on each un successful match
         private const int SCORETODEDUCTONMATCHUNSUCCESS = 20;
 
         public void MatchSuccess()
         {
-            score += SCORETOGRANTONMATCHSUCCESS;
+            //reward the score
+            score += SCORETOGRANTONMATCHSUCCESS * scoreComboMultiplier;
+            //update on ui
             ServiceLocator.Singleton.Get<IHudService>().UpdateScore(score);
+            //increase score multiplier
+            scoreComboMultiplier++;
         }
         public void MatchUnSuccess()
         {
+            // reset score multiplier to 1 
+            scoreComboMultiplier = 1;
+            //deduct score if more than 0 else reset score to 0
             if (score > SCORETODEDUCTONMATCHUNSUCCESS)
                 score -= SCORETODEDUCTONMATCHUNSUCCESS;
             else
@@ -32,6 +43,7 @@ namespace cyberspeed.MatchGame
         {
             score = 0;
             turnsTaken = 0;
+            scoreComboMultiplier = 1;
         }
 
         public int GetScore()
