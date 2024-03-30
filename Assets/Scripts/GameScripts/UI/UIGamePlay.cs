@@ -16,6 +16,10 @@ namespace cyberspeed.MatchGame.UI
         {
             //since user is quitting delete game so on next launch we can start a fresh
             ServiceLocator.Singleton.Get<IGameSaveLoadService>().DeleteSavedGame();
+            for(int i = 0; i < allCards.Count; i++)
+            {
+                allCards[i].Reset();
+            }
             ServiceLocator.Singleton.Get<IFSMService>().ChangeState(States.MainMenu.ToString());
         }
         //called from editor
