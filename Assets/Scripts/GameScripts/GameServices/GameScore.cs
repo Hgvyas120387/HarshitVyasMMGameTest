@@ -33,5 +33,15 @@ namespace cyberspeed.MatchGame
             score = 0;
             turnsTaken = 0;
         }
+
+        public int GetScore()
+        {
+            return score;
+        }
+
+        public int GetTurnsTaken()
+        {
+            return turnsTaken;
+        }
     }
 }

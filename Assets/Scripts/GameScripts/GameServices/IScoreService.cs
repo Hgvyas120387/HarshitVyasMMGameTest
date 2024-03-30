@@ -8,6 +8,7 @@ namespace cyberspeed.MatchGame
         public void MatchSuccess();
         public void MatchUnSuccess();
         public void Reset();
-
+        public int GetScore();
+        public int GetTurnsTaken();
     }
 }

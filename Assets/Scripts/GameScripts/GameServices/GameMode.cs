@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using cyberspeed.Services;
+using cyberspeed.MatchGame.UI;
+using System.Collections;
 
 namespace cyberspeed.MatchGame
 {
@@ -12,6 +14,7 @@ namespace cyberspeed.MatchGame
         private int rows, columns;
         private int[] cardArray;
         private List<UICard> uiCards = new List<UICard>();
+        private UICard[] allCards;
 
         public int GetGridItemSize()
         {
@@ -65,6 +68,7 @@ namespace cyberspeed.MatchGame
                     CoroutineManager.Singleton.StartCoroutine(uiCards[0].HideCard(1));
                     CoroutineManager.Singleton.StartCoroutine(uiCards[1].HideCard(1));
                     ServiceLocator.Singleton.Get<IScoreService>().MatchSuccess();
+                    CoroutineManager.Singleton.StartCoroutine(CheckForGameEnd(1.1f));
                 }
                 else
                 {
@@ -74,6 +78,11 @@ namespace cyberspeed.MatchGame
                 }
                 uiCards.Clear();
             }
+        }
+
+        public void FeedAllCard(UICard[] cards)
+        {
+            allCards = cards;
         }
 
         private int[] GenerateRandomNumbers(int highestNum, int count)
@@ -92,6 +101,24 @@ namespace cyberspeed.MatchGame
             }
 
             return uniqueNumbers.ToArray();
+        }
+
+        private IEnumerator CheckForGameEnd(float delay)
+        {
+            yield return new WaitForSecondsRealtime(delay);
+            bool isGameEnded = true;
+            for(int i=0;i<allCards.Length;i++)
+            {
+                if(allCards[i].pIsCardClosed == false)
+                {
+                    isGameEnded = false;
+                    break;
+                }
+            }
+            if (isGameEnded)
+            {
+                ServiceLocator.Singleton.Get<IFSMService>().ChangeState(States.GameEnd.ToString());
+            }
         }
     }
 }

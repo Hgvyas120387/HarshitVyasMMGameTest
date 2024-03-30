@@ -1,14 +1,15 @@
 using UnityEngine.UI;
 using UnityEngine;
 using cyberspeed.Services;
+using System.Collections.Generic;
 
-namespace cyberspeed.MatchGame
+namespace cyberspeed.MatchGame.UI
 {
     public class UIGamePlay : MonoBehaviour
     {
         [SerializeField] private UICard pfUICard;
         [SerializeField] private GridLayoutGroup gridLayout;
-        private int[] cardIndex;
+        private List<UICard> allCards = new List<UICard>();
         //called from editor
         public void OnBtnHomeClicked()
         {
@@ -17,6 +18,7 @@ namespace cyberspeed.MatchGame
 
         private void Start()
         {
+            allCards.Clear();
             float size = ServiceLocator.Singleton.Get<IGameModeService>().GetGridItemSize();
             Debug.Log($"Size : {size}");
             gridLayout.cellSize = new Vector2(size,size);
@@ -34,9 +36,11 @@ namespace cyberspeed.MatchGame
                     card.SetData(cards[index]);
                     index++;
                     card.gameObject.SetActive(true);
+                    allCards.Add(card);
                 }
             }
             pfUICard.gameObject.SetActive(false);
+            ServiceLocator.Singleton.Get<IGameModeService>().FeedAllCard(allCards.ToArray());
         }
     }
 }

@@ -3,11 +3,12 @@ using UnityEngine;
 using UnityEngine.UI;
 using cyberspeed.Services;
 
-namespace cyberspeed.MatchGame
+namespace cyberspeed.MatchGame.UI
 {
     public class UICard : MonoBehaviour
     {
         public int pIndex { get { return index; } }
+        public bool pIsCardClosed { get { return imgCard.enabled == false; } }
         [SerializeField] private Image imgCard = null;
         [SerializeField] private Sprite[] spritesForCard = null;
         [SerializeField] private Sprite spriteForCardFaceDown = null;

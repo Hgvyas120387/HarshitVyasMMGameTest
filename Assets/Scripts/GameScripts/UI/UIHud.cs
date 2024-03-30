@@ -2,7 +2,7 @@ using TMPro;
 using UnityEngine;
 using cyberspeed.Services;
 
-namespace cyberspeed.MatchGame
+namespace cyberspeed.MatchGame.UI
 {
     public class UIHud : MonoBehaviour, IHudService
     {

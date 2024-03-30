@@ -3,7 +3,7 @@ using cyberspeed.Services;
 using TMPro;
 using System;
 
-namespace cyberspeed.MatchGame
+namespace cyberspeed.MatchGame.UI
 {
     
     public class UIMainMenu : MonoBehaviour

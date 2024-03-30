@@ -1,4 +1,5 @@
 using cyberspeed.Services;
+using cyberspeed.MatchGame.UI;
 
 namespace cyberspeed.MatchGame
 {
@@ -35,5 +36,10 @@ namespace cyberspeed.MatchGame
         /// </summary>
         /// <param name="card">Card which opened by user</param>
         public void CardOpened(UICard card);
+        /// <summary>
+        /// Feed all the cards at the beginning of game play
+        /// </summary>
+        /// <param name="cards">All cards array</param>
+        public void FeedAllCard(UICard[] cards);
     }
 }
