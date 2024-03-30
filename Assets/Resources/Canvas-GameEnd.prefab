@@ -299,6 +299,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   txtScore: {fileID: 6791019091761016615}
+  gameEndSound: {fileID: 8300000, guid: 576a79b59c0f5435d89d7375aba41c63, type: 3}
 --- !u!1 &5044112813951281378
 GameObject:
   m_ObjectHideFlags: 0

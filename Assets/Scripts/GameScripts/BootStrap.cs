@@ -13,7 +13,9 @@ public class BootStrap : MonoBehaviour
     void Start()
     {
         //allow game to run as fast as possible
-        Application.targetFrameRate = -1;
+        Application.targetFrameRate = 60;
+        //register audio service
+        ServiceLocator.Singleton.Register<IAudioService>(new AudioManager());
         //register the Game mode service
         ServiceLocator.Singleton.Register<IGameModeService>(new GameMode());
         //register score service

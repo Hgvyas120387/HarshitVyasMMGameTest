@@ -7,9 +7,11 @@ namespace cyberspeed.MatchGame.UI
     public class UIGameEnd : MonoBehaviour
     {
         [SerializeField] private TextMeshProUGUI txtScore;
+        [SerializeField] private AudioClip gameEndSound;
 
         private void Awake()
         {
+            ServiceLocator.Singleton.Get<IAudioService>().PlayAudioOneShot(gameEndSound);
             txtScore.text = $"Your score : {ServiceLocator.Singleton.Get<IScoreService>().GetScore()}\n\nTurns taken : {ServiceLocator.Singleton.Get<IScoreService>().GetTurnsTaken()}";
         }
 

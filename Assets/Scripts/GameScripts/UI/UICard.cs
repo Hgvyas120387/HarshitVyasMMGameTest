@@ -12,7 +12,11 @@ namespace cyberspeed.MatchGame.UI
         [SerializeField] private Image imgCard = null;
         [SerializeField] private Sprite[] spritesForCard = null;
         [SerializeField] private Sprite spriteForCardFaceDown = null;
+        [SerializeField] private AudioClip audioCardFlip = null;
+        [SerializeField] private AudioClip audioMatchSuccess = null;
+        [SerializeField] private AudioClip audioMatchFailed = null;
         [SerializeField] private float rotationSpeed;
+        
         private bool isFacedDown = true;
         private bool isCardSwapped = false;
         private int index;
@@ -28,16 +32,19 @@ namespace cyberspeed.MatchGame.UI
                 return;
             enabled = true;
             isCardSwapped = false;
+            ServiceLocator.Singleton.Get<IAudioService>().PlayAudioOneShot(audioCardFlip);
         }
 
         public IEnumerator HideCard(float delay)
         {
+            ServiceLocator.Singleton.Get<IAudioService>().PlayAudioOneShot(audioMatchSuccess);
             yield return new WaitForSecondsRealtime(delay);
             imgCard.enabled = false;
         }
 
         public IEnumerator MakeCardFaceDown(float delay)
         {
+            ServiceLocator.Singleton.Get<IAudioService>().PlayAudioOneShot(audioMatchFailed);
             yield return new WaitForSecondsRealtime(delay);
             isCardSwapped = false;
             enabled = true;

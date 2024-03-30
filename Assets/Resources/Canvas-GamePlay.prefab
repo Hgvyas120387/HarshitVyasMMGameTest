@@ -324,6 +324,9 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 1e6c93bdcec3f4806b72e964111e7624, type: 3}
   - {fileID: 21300000, guid: 7b6e0f523477c4cfb80d63755b6fb938, type: 3}
   spriteForCardFaceDown: {fileID: 21300000, guid: 104a88d361ed74826850447c3d25b70a, type: 3}
+  audioCardFlip: {fileID: 8300000, guid: e68ace1dd2c7745b2b431fc8974a3a9b, type: 3}
+  audioMatchSuccess: {fileID: 8300000, guid: bde3e109fca00450c9b4a2c80bd5e520, type: 3}
+  audioMatchFailed: {fileID: 8300000, guid: f2154611d50184b1687503a4bce852f4, type: 3}
   rotationSpeed: 360
 --- !u!95 &4736047894419401964
 Animator:
