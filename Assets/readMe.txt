@@ -6,3 +6,4 @@
 6) My contact details are +91-9016679976 (Harshit Vyas)
 7) Game has been made with unity 2021.3.15f1
 8) Apk file is also included in the git repo
+9) Had initially worked on feature/game branch but later I merged that into main branch
