@@ -1,0 +1,86 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: cardAtlas
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings: []
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 1
+      enableTightPacking: 1
+      enableAlphaDilation: 0
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: 102900000, guid: c41e580b5ce75436e935eb20d62b0c86, type: 3}
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: 051c7820faa8b406c94b558c051732eb, type: 3}
+  - {fileID: 21300000, guid: 796a7560eab6545dd9a9f78712072c1a, type: 3}
+  - {fileID: 21300000, guid: 956fa0e0427874e998df526a20932728, type: 3}
+  - {fileID: 21300000, guid: 7b6e0f523477c4cfb80d63755b6fb938, type: 3}
+  - {fileID: 21300000, guid: b6a86283732c746c58d602190f9bbf2a, type: 3}
+  - {fileID: 21300000, guid: 104a88d361ed74826850447c3d25b70a, type: 3}
+  - {fileID: 21300000, guid: 9a6017346157d4fb89197a482692cef8, type: 3}
+  - {fileID: 21300000, guid: eda1bb05eaf54467b82a9f143b581964, type: 3}
+  - {fileID: 21300000, guid: 60d06b87c038b4ddeaf26ef3027e5933, type: 3}
+  - {fileID: 21300000, guid: e99ab9979e28a4f0b95a802d43a31b0d, type: 3}
+  - {fileID: 21300000, guid: bbfc60688b3aa47988f7d2975a352034, type: 3}
+  - {fileID: 21300000, guid: ded3c17885c574892b315cd49b389285, type: 3}
+  - {fileID: 21300000, guid: 5cab31995f60443ada30cb624bfbf51c, type: 3}
+  - {fileID: 21300000, guid: bf9b3e7b4f62149f4b3af6c5564c21bd, type: 3}
+  - {fileID: 21300000, guid: 3ed5119b7dbaa47979b7882c76040faa, type: 3}
+  - {fileID: 21300000, guid: dcfc631cb3fff45029cd6541edb0dd06, type: 3}
+  - {fileID: 21300000, guid: 569afe2c1715d49a88a72453d079ea36, type: 3}
+  - {fileID: 21300000, guid: 1e6c93bdcec3f4806b72e964111e7624, type: 3}
+  - {fileID: 21300000, guid: f212758ec1e8c40ca844659e274ac5b4, type: 3}
+  - {fileID: 21300000, guid: 123dea4f55d494e4fab1dfc60d1617bf, type: 3}
+  - {fileID: 21300000, guid: 45fab6df0ce574fbc93924a348496fd7, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - guava
+  - banana
+  - papaya
+  - watermelon
+  - raspberry
+  - backgroundCard
+  - pomegranate
+  - grapes
+  - lemon
+  - avocado
+  - kiwi
+  - mango
+  - coconut
+  - cherry
+  - apple
+  - dragonfruit
+  - orange
+  - sapota
+  - jackfruit
+  - pear
+  - pineple
+  m_RenderDataMap: {}
+  m_Tag: cardAtlas
+  m_IsVariant: 0

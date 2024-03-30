@@ -10,7 +10,10 @@
 /[Ll]ogs/
 /[Uu]ser[Ss]ettings/
 /Assets/StreamingAssets/AssetBundles
-unity-build-output/
+mmGame_BackUpThisFolder_ButDontShipItWithYourGame/
+mmGame_BurstDebugInformation_DoNotShip/
+mmGame_mapping.txt
+
 
 # MemoryCaptures can get excessive in size.
 # They also could contain extremely sensitive data
@@ -50,7 +53,6 @@ ExportedObj/
 sysinfo.txt
 
 # Builds
-*.apk
 *.aab
 *.unitypackage
 *.app
