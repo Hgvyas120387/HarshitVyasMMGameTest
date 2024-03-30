@@ -11,13 +11,18 @@ namespace cyberspeed.MatchGame
 
         public void DeleteSavedGame()
         {
+            ServiceLocator.Singleton.Get<IGameModeService>().SetSavedGameData(null);
             PlayerPrefs.DeleteKey(KEYFORSAVEDGAME);
             PlayerPrefs.Save();
         }
 
-        public string LoadGameIfAny()
+        public SavedGameData LoadGameIfAny()
         {
-            return PlayerPrefs.GetString(KEYFORSAVEDGAME, string.Empty);
+            string json = PlayerPrefs.GetString(KEYFORSAVEDGAME, string.Empty);
+            if (string.IsNullOrEmpty(json))
+                return null;
+            else
+                return JsonUtility.FromJson<SavedGameData>(json);
         }
 
         public void SaveGame()
@@ -40,6 +45,8 @@ namespace cyberspeed.MatchGame
             data.score = ServiceLocator.Singleton.Get<IScoreService>().GetScore();
             data.turnsTaken = ServiceLocator.Singleton.Get<IScoreService>().GetTurnsTaken();
             data.scoreComboMultiplier = ServiceLocator.Singleton.Get<IScoreService>().GetScoreComboMultiplier();
+            data.numberOfColumns = ServiceLocator.Singleton.Get<IGameModeService>().GetNumberOfColumns();
+            data.numberOfRows = ServiceLocator.Singleton.Get<IGameModeService>().GetNumberOfRows();
             PlayerPrefs.SetString(KEYFORSAVEDGAME, JsonUtility.ToJson(data));
             PlayerPrefs.Save();
             Debug.Log(PlayerPrefs.GetString(KEYFORSAVEDGAME));

@@ -35,5 +35,9 @@ namespace cyberspeed.MatchGame
         /// </summary>
         /// <returns>score combo multiplier</returns>
         public int GetScoreComboMultiplier();
+        /// <summary>
+        /// To set last saved games score, turns taken and combo multiplier
+        /// </summary>
+        public void SetSavedGameData(int score,int turnsTaken,int scoreComboMultiplier);
     }
 }

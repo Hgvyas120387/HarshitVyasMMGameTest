@@ -15,6 +15,7 @@ namespace cyberspeed.MatchGame
         private int[] cardArray;
         private List<UICard> uiCards = new List<UICard>();
         private UICard[] allCards;
+        private SavedGameData savedGameData;
 
         public int GetGridItemSize()
         {
@@ -43,22 +44,34 @@ namespace cyberspeed.MatchGame
         public int[] GetCardArray()
         {
             cardArray = new int[rows * columns];
-            int cardsNeeded = cardArray.Length / 2;
-            int[] arrCards = GenerateRandomNumbers(MAXCARDSAVAILABLE, cardsNeeded);
-            int index = 0;
-            for (int i = 0; i < arrCards.Length; i++)
+            if (savedGameData == null)
             {
-                cardArray[index] = arrCards[i];
-                index++;
-                cardArray[index] = arrCards[i];
-                index++;
+                int cardsNeeded = cardArray.Length / 2;
+                int[] arrCards = GenerateRandomNumbers(MAXCARDSAVAILABLE, cardsNeeded);
+                int index = 0;
+                for (int i = 0; i < arrCards.Length; i++)
+                {
+                    cardArray[index] = arrCards[i];
+                    index++;
+                    cardArray[index] = arrCards[i];
+                    index++;
+                }
+                cardArray.Shuffle();
             }
-            cardArray.Shuffle();
+            else
+            {
+                for(int i = 0; i < cardArray.Length; i++)
+                {
+                    Debug.Log(savedGameData.cards[i].cardSpriteIndex);
+                    cardArray[i] = savedGameData.cards[i].cardSpriteIndex;
+                }
+            }
             return cardArray;
         }
 
         public void CardOpened(UICard card)
         {
+            Debug.Log($"Card opened : {card.pIndex}");
             ServiceLocator.Singleton.Get<IScoreService>().TurnTaken();
             uiCards.Add(card);
             if (uiCards.Count == 2)
@@ -82,7 +95,20 @@ namespace cyberspeed.MatchGame
 
         public void FeedAllCard(UICard[] cards)
         {
+            Debug.Log("feed all card called");
             allCards = cards;
+            if (savedGameData != null)
+            {
+                for (int i = 0; i < allCards.Length; i++)
+                {
+                    if (savedGameData.cards[i].isCardClosed)
+                        allCards[i].HideCardForSavedGame();
+                    if (savedGameData.cards[i].isCardFaceDown == false && savedGameData.cards[i].isCardClosed == false)
+                    {
+                        allCards[i].MakeCardFaceUpForSavedGame();
+                    }
+                }
+            }
         }
 
         private int[] GenerateRandomNumbers(int highestNum, int count)
@@ -128,6 +154,16 @@ namespace cyberspeed.MatchGame
         public UICard[] GetAllCardsUI()
         {
             return allCards;
+        }
+
+        public void SetSavedGameData(SavedGameData savedGameData)
+        {
+            this.savedGameData = savedGameData;
+        }
+
+        public SavedGameData GetSavedGameDataIfAny()
+        {
+            return savedGameData;
         }
     }
 }

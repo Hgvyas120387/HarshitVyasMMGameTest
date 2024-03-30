@@ -60,5 +60,12 @@ namespace cyberspeed.MatchGame
         {
             return scoreComboMultiplier;
         }
+
+        public void SetSavedGameData(int score, int turnsTaken, int scoreComboMultiplier)
+        {
+            this.score = score;
+            this.turnsTaken = turnsTaken;
+            this.scoreComboMultiplier = scoreComboMultiplier;
+        }
     }
 }

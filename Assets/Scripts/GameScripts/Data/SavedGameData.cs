@@ -9,6 +9,8 @@ namespace cyberspeed.MatchGame
         public int score;
         public int turnsTaken;
         public int scoreComboMultiplier;
+        public int numberOfRows;
+        public int numberOfColumns;
     }
 
 }

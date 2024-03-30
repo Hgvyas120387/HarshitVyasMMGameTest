@@ -46,6 +46,18 @@ namespace cyberspeed.MatchGame.UI
             ServiceLocator.Singleton.Get<IAudioService>().PlayAudioOneShot(audioCardFlip);
         }
 
+        public void HideCardForSavedGame()
+        {
+            imgCard.enabled = false;
+        }
+
+        public void MakeCardFaceUpForSavedGame()
+        {
+            imgCard.sprite = spritesForCard[index];
+            isFacedDown = false;
+            ServiceLocator.Singleton.Get<IGameModeService>().CardOpened(this);
+        }
+
         public IEnumerator HideCard(float delay)
         {
             ServiceLocator.Singleton.Get<IAudioService>().PlayAudioOneShot(audioMatchSuccess);

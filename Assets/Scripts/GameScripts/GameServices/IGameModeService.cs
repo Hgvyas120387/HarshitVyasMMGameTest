@@ -46,5 +46,14 @@ namespace cyberspeed.MatchGame
         /// </summary>
         /// <returns>all ui cards<returns>
         public UICard[] GetAllCardsUI();
+        /// <summary>
+        /// In case we are playing any saved game call it to load that data if and when required
+        /// </summary>
+        public void SetSavedGameData(SavedGameData savedGameData);
+        /// <summary>
+        /// gives savedGameData if available else null
+        /// </summary>
+        /// <returns>SavedGameData instance</returns>
+        public SavedGameData GetSavedGameDataIfAny();
     }
 }

@@ -9,10 +9,10 @@ namespace cyberspeed.MatchGame
         /// </summary>
         public void SaveGame();
         /// <summary>
-        /// Checks if there is any saved game or not returns json in case of any else return empty string
+        /// Checks if there is any saved game or not returns SavedGameData in case of any else return null
         /// </summary>
-        /// <returns>json of saved game or empty string</returns>
-        public string LoadGameIfAny();
+        /// <returns>SavedGameData instance</returns>
+        public SavedGameData LoadGameIfAny();
         /// <summary>
         /// In case game finishes or user quits call it to delete saved game so on next launch we can receive empty string
         /// </summary>
