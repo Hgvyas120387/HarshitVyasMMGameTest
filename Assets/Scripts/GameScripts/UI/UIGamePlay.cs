@@ -3,6 +3,7 @@ using UnityEngine;
 using cyberspeed.Services;
 using System.Collections.Generic;
 using cyberspeed.Pooling;
+using System;
 
 namespace cyberspeed.MatchGame.UI
 {
@@ -27,6 +28,12 @@ namespace cyberspeed.MatchGame.UI
         {
             //save the game so on next launch we can start from same place
             ServiceLocator.Singleton.Get<IGameSaveLoadService>().SaveGame();
+            ServiceLocator.Singleton.Get<IPopUpService>().ShowPopUp("Game Saved", "Game has been saved you can quit now on next launch game will resume from here if you don't press home button nor complete the game", "Ok", OnPopUpButtonClicked);
+        }
+
+        private void OnPopUpButtonClicked()
+        {
+            ServiceLocator.Singleton.Get<IPopUpService>().HidePopUp();
         }
 
         private void Start()
