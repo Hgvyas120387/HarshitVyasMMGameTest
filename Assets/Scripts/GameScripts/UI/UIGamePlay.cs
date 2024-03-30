@@ -8,7 +8,7 @@ namespace cyberspeed.MatchGame
     {
         [SerializeField] private UICard pfUICard;
         [SerializeField] private GridLayoutGroup gridLayout;
-
+        private int[] cardIndex;
         //called from editor
         public void OnBtnHomeClicked()
         {
@@ -24,11 +24,15 @@ namespace cyberspeed.MatchGame
             int columns = ServiceLocator.Singleton.Get<IGameModeService>().GetNumberOfColumns();
             gridLayout.constraint = GridLayoutGroup.Constraint.FixedColumnCount;
             gridLayout.constraintCount = columns;
+            int[] cards = ServiceLocator.Singleton.Get<IGameModeService>().GetCardArray();
+            int index = 0;
             for (int i = 0; i < rows; i++)
             {
                 for(int j = 0; j < columns; j++)
                 {
                     UICard card = Instantiate<UICard>(pfUICard, pfUICard.transform.parent);
+                    card.SetData(cards[index]);
+                    index++;
                     card.gameObject.SetActive(true);
                 }
             }

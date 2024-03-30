@@ -25,5 +25,15 @@ namespace cyberspeed.MatchGame
         /// </summary>
         /// <returns>number of columns</returns>
         public int GetNumberOfColumns();
+        /// <summary>
+        /// Gives the array of card index
+        /// </summary>
+        /// <returns>array of card index</returns>
+        public int[] GetCardArray();
+        /// <summary>
+        /// Call this when user opens any card it will check if cards are matched or not
+        /// </summary>
+        /// <param name="card">Card which opened by user</param>
+        public void CardOpened(UICard card);
     }
 }

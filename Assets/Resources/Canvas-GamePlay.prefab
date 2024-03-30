@@ -288,7 +288,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &3106579749621828079
 RectTransform:
   m_ObjectHideFlags: 0
@@ -304,10 +304,10 @@ RectTransform:
   m_Father: {fileID: 3106579749976591934}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 960, y: -490}
+  m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3106579749621828074
 CanvasRenderer:
@@ -390,7 +390,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3106579749621828077}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3106579749621828075}
+        m_TargetAssemblyTypeName: cyberspeed.MatchGame.UICard, Assembly-CSharp
+        m_MethodName: OnClicked
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &3106579749621828075
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -398,11 +410,35 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3106579749621828078}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5ac915b06211b4a4b82fb8bdc160ccca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  imgCard: {fileID: 3106579749621828077}
+  spritesForCard:
+  - {fileID: 21300000, guid: 3ed5119b7dbaa47979b7882c76040faa, type: 3}
+  - {fileID: 21300000, guid: e99ab9979e28a4f0b95a802d43a31b0d, type: 3}
+  - {fileID: 21300000, guid: 796a7560eab6545dd9a9f78712072c1a, type: 3}
+  - {fileID: 21300000, guid: bf9b3e7b4f62149f4b3af6c5564c21bd, type: 3}
+  - {fileID: 21300000, guid: 5cab31995f60443ada30cb624bfbf51c, type: 3}
+  - {fileID: 21300000, guid: dcfc631cb3fff45029cd6541edb0dd06, type: 3}
+  - {fileID: 21300000, guid: eda1bb05eaf54467b82a9f143b581964, type: 3}
+  - {fileID: 21300000, guid: 051c7820faa8b406c94b558c051732eb, type: 3}
+  - {fileID: 21300000, guid: f212758ec1e8c40ca844659e274ac5b4, type: 3}
+  - {fileID: 21300000, guid: bbfc60688b3aa47988f7d2975a352034, type: 3}
+  - {fileID: 21300000, guid: 60d06b87c038b4ddeaf26ef3027e5933, type: 3}
+  - {fileID: 21300000, guid: ded3c17885c574892b315cd49b389285, type: 3}
+  - {fileID: 21300000, guid: 569afe2c1715d49a88a72453d079ea36, type: 3}
+  - {fileID: 21300000, guid: 956fa0e0427874e998df526a20932728, type: 3}
+  - {fileID: 21300000, guid: 123dea4f55d494e4fab1dfc60d1617bf, type: 3}
+  - {fileID: 21300000, guid: 45fab6df0ce574fbc93924a348496fd7, type: 3}
+  - {fileID: 21300000, guid: 9a6017346157d4fb89197a482692cef8, type: 3}
+  - {fileID: 21300000, guid: b6a86283732c746c58d602190f9bbf2a, type: 3}
+  - {fileID: 21300000, guid: 1e6c93bdcec3f4806b72e964111e7624, type: 3}
+  - {fileID: 21300000, guid: 7b6e0f523477c4cfb80d63755b6fb938, type: 3}
+  spriteForCardFaceDown: {fileID: 21300000, guid: 104a88d361ed74826850447c3d25b70a, type: 3}
+  rotationSpeed: 360
 --- !u!1 &3106579749872317667
 GameObject:
   m_ObjectHideFlags: 0
