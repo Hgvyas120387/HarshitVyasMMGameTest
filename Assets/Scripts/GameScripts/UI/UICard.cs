@@ -10,6 +10,7 @@ namespace cyberspeed.MatchGame.UI
     {
         public int pIndex { get { return index; } }
         public bool pIsCardClosed { get { return imgCard.enabled == false; } }
+        public bool pIsCardFaceDown { get { return isFacedDown; } }
         [SerializeField] private Image imgCard = null;
         [SerializeField] private Sprite[] spritesForCard = null;
         [SerializeField] private Sprite spriteForCardFaceDown = null;
@@ -38,7 +39,7 @@ namespace cyberspeed.MatchGame.UI
         //called from editor
         public void OnClicked()
         {
-            if (enabled)//to avoid accidental double click
+            if (enabled || isFacedDown == false)//to avoid accidental double click
                 return;
             enabled = true;
             isCardSwapped = false;

@@ -14,7 +14,15 @@ namespace cyberspeed.MatchGame.UI
         //called from editor
         public void OnBtnHomeClicked()
         {
+            //since user is quitting delete game so on next launch we can start a fresh
+            ServiceLocator.Singleton.Get<IGameSaveLoadService>().DeleteSavedGame();
             ServiceLocator.Singleton.Get<IFSMService>().ChangeState(States.MainMenu.ToString());
+        }
+        //called from editor
+        public void OnBtnSaveGameClicked()
+        {
+            //save the game so on next launch we can start from same place
+            ServiceLocator.Singleton.Get<IGameSaveLoadService>().SaveGame();
         }
 
         private void Start()

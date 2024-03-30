@@ -14,6 +14,8 @@ public class BootStrap : MonoBehaviour
     {
         //allow game to run as fast as possible
         Application.targetFrameRate = 60;
+        //register game load save service
+        ServiceLocator.Singleton.Register<IGameSaveLoadService>(new GameSaveLoadService());
         //register audio service
         ServiceLocator.Singleton.Register<IAudioService>(new AudioManager());
         //register the Game mode service
@@ -28,6 +30,4 @@ public class BootStrap : MonoBehaviour
         //switch to initial state
         ServiceLocator.Singleton.Get<IFSMService>().ChangeState(initialState.ToString());
     }
-
-    
 }

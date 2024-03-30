@@ -30,5 +30,10 @@ namespace cyberspeed.MatchGame
         /// </summary>
         /// <returns>turns taken by user</returns>
         public int GetTurnsTaken();
+        /// <summary>
+        /// Get the score combo multiplier
+        /// </summary>
+        /// <returns>score combo multiplier</returns>
+        public int GetScoreComboMultiplier();
     }
 }

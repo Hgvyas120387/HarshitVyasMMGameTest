@@ -41,5 +41,10 @@ namespace cyberspeed.MatchGame
         /// </summary>
         /// <param name="cards">All cards array</param>
         public void FeedAllCard(UICard[] cards);
+        /// <summary>
+        /// Gives the all uicard available in current game
+        /// </summary>
+        /// <returns>all ui cards<returns>
+        public UICard[] GetAllCardsUI();
     }
 }

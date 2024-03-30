@@ -55,5 +55,10 @@ namespace cyberspeed.MatchGame
         {
             return turnsTaken;
         }
+
+        public int GetScoreComboMultiplier()
+        {
+            return scoreComboMultiplier;
+        }
     }
 }

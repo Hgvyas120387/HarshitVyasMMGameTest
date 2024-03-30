@@ -11,6 +11,8 @@ namespace cyberspeed.MatchGame.UI
 
         private void Awake()
         {
+            //since user has finished game delete saved game so on next launch we can start a fresh
+            ServiceLocator.Singleton.Get<IGameSaveLoadService>().DeleteSavedGame();
             ServiceLocator.Singleton.Get<IAudioService>().PlayAudioOneShot(gameEndSound);
             txtScore.text = $"Your score : {ServiceLocator.Singleton.Get<IScoreService>().GetScore()}\n\nTurns taken : {ServiceLocator.Singleton.Get<IScoreService>().GetTurnsTaken()}";
         }
