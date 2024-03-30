@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using cyberspeed.Services;
 
 namespace cyberspeed.MatchGame
 {
@@ -31,6 +32,7 @@ namespace cyberspeed.MatchGame
         public void SetGameGrid(int rows, int columns)
         {
             uiCards.Clear();
+            ServiceLocator.Singleton.Get<IScoreService>().Reset();
             this.rows = rows;
             this.columns = columns;
         }
@@ -54,6 +56,7 @@ namespace cyberspeed.MatchGame
 
         public void CardOpened(UICard card)
         {
+            ServiceLocator.Singleton.Get<IScoreService>().TurnTaken();
             uiCards.Add(card);
             if (uiCards.Count == 2)
             {
@@ -61,11 +64,13 @@ namespace cyberspeed.MatchGame
                 {
                     CoroutineManager.Singleton.StartCoroutine(uiCards[0].HideCard(1));
                     CoroutineManager.Singleton.StartCoroutine(uiCards[1].HideCard(1));
+                    ServiceLocator.Singleton.Get<IScoreService>().MatchSuccess();
                 }
                 else
                 {
                     CoroutineManager.Singleton.StartCoroutine(uiCards[0].MakeCardFaceDown(1));
                     CoroutineManager.Singleton.StartCoroutine(uiCards[1].MakeCardFaceDown(1));
+                    ServiceLocator.Singleton.Get<IScoreService>().MatchUnSuccess();
                 }
                 uiCards.Clear();
             }

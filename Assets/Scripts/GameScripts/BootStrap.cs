@@ -14,6 +14,8 @@ public class BootStrap : MonoBehaviour
     {
         //register the Game mode service
         ServiceLocator.Singleton.Register<IGameModeService>(new GameMode());
+        //register score service
+        ServiceLocator.Singleton.Register<IScoreService>(new GameScore());
         //register the fsm service
         ServiceLocator.Singleton.Register<IFSMService>(new FSM());
         //add all the states
